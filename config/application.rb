@@ -20,9 +20,6 @@ module TuneshareApi
   class Application < Rails::Application
     config.load_defaults 6.0
     config.api_only = true
-    config.session_store :cookie_store, key: '_interslice_session'
-    config.middleware.use ActionDispatch::Cookies # Required for all session management
-    config.middleware.use ActionDispatch::Session::CookieStore, config.session_options
     config.generators do |generate|
       generate.helper false
       generate.assets false
@@ -35,23 +32,13 @@ module TuneshareApi
 
     config.middleware.insert_before 0, Rack::Cors do
       allow do
-        origins 'localhost:3001', 'c99f0c11f54d.ngrok.io'
+        origins '*'
         resource '*',
                  headers: :any,
-                 expose: %w[access-token expiry token-type uid client spotify_credentials],
-                 methods: %i[get post put delete options],
+                 methods: %i[get post put delete],
+                 expose: %w[access-token expiry token-type uid client],
                  max_age: 0
       end
     end
-    config.hosts << 'tuneshare-2021.herokuapp.com'
-    config.hosts << 'c99f0c11f54d.ngrok.io'
-    config.action_dispatch.default_headers = {
-      'Referrer-Policy' => 'no-referrer-when-downgrade',
-      'X-Content-Type-Options' => 'nosniff',
-      'X-Frame-Options' => 'SAMEORIGIN',
-      'X-XSS-Protection' => '1; mode=block',
-      'Access-Control-Allow-Origin' => 'localhost:3001',
-      'Access-Control-Allow-Headers' => 'Origin, X-Requested-With, Content-Type, Accept'
-    }
   end
 end
