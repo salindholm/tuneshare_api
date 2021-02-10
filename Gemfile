@@ -9,12 +9,8 @@ gem 'puma', '~> 4.1'
 gem 'bootsnap', '>= 1.4.2', require: false
 gem 'rack-cors', require: 'rack/cors'
 gem 'rspotify'
-gem "omniauth", "~> 1.9.1"
 gem 'devise_token_auth'
-gem 'omniauth-spotify'
 gem 'active_model_serializers'
-gem 'omniauth-facebook'
-gem 'rest-client'
 
 group :development, :test do
   gem 'pry-rails'
@@ -30,5 +26,4 @@ group :development do
   gem 'listen', '~> 3.2'
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
-  gem 'guard-rspec', require: false
 end
