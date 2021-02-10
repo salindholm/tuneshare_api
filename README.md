@@ -8,7 +8,7 @@ This is a mobile application where the user can post their favorite music. We ar
 
 ### Installation
 
-1. Fork and clone [Tune Share API](https://github.com/CraftAcademy/tuneshare_api) to your local workspace.
+1. Fork and clone [TuneShare API](https://github.com/KyunginNa/tuneshare_api) to your local workspace.
 
 2. Install the project dependencies.
 
@@ -32,7 +32,7 @@ rails s
 
 ### The User Interface can be found here:
 
-- [Tune Share Client](https://github.com/CraftAcademy/tuneshare_client)
+- [TuneShare Client](https://github.com/KyunginNa/tuneshare_client)
 
 ## Dependencies
 
